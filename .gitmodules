@@ -1,0 +1,6 @@
+[submodule "cjson"]
+	path = cjson
+	url = https://github.com/DaveGamble/cJSON.git
+[submodule "docker"]
+	path = docker
+	url = https://github.com/dogusyuksel/embedded_docker

@@ -46,4 +46,4 @@ jobs:
 
     - name: Build Check
       run: |
-        ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace && ./build.sh"
+        ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace && make"

@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ -d "thirdparty/libcanard" ]; then
-    cd thirdparty/libcanard
-    git checkout 43de1c4966b8d1e5d57978949d63e697f045b358
-    git submodule update --init --recursive
+if [ -d "cjson" ]; then
+    cd cjson
+    git checkout 87d8f0961a01bf09bef98ff89bae9fdec42181ee
+    mkdir build
+    cd build
+    cmake ..
+    make
     cd -
-    patch -d . -p1 < ./patches/transport.py.patch
-    patch -d . -p1 < ./patches/canard_stm32.patch
-    ./thirdparty/libcanard/dsdl_compiler/libcanard_dsdlc ./nodes --incdir ./thirdparty/libcanard/dsdl_compiler/pyuavcan/uavcan --outdir ./canbus/generated_files
 fi
 
 

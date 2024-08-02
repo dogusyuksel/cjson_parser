@@ -47,3 +47,11 @@ jobs:
     - name: Build Check
       run: |
         ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace && make"
+
+    - name: Format Check
+      run: |
+        ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace/embedded_linting && ./format_check.sh ../cjson_parser.c"
+
+    - name: SPLint Check
+      run: |
+        ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace && splint -weak -I./ -Icjson cjson_parser.c -unrecog +posixlib >> output.txt && cat output.txt"

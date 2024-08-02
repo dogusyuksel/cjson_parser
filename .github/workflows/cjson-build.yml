@@ -47,3 +47,7 @@ jobs:
     - name: Build Check
       run: |
         ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace && make"
+
+    - name: Format Check
+      run: |
+        ./docker/run_docker.sh ${{ secrets.DOCKER_REPO }}:master "cd /workspace/embedded_linting && ./format_check.sh ../cjson_parser.c"
